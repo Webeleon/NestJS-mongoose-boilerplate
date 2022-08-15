@@ -3,6 +3,7 @@ import { ConfigModule, ConfigType, getConfigToken } from '@nestjs/config';
 import { appConfig } from './config/app.config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { databaseConfig } from './config/database.config';
+import { ThrottlerModule } from '@nestjs/throttler';
 
 @Module({
   imports: [
@@ -16,6 +17,10 @@ import { databaseConfig } from './config/database.config';
       useFactory: async (config: ConfigType<typeof databaseConfig>) => ({
         uri: config.mongoUrl,
       }),
+    }),
+    ThrottlerModule.forRoot({
+      ttl: 60,
+      limit: 10,
     }),
   ],
 })
