@@ -12,11 +12,13 @@ async function bootstrap() {
 
   // setup swagger
   const swaggerConfig = new DocumentBuilder()
-    .setTitle('rsvp api')
+    .setTitle(pkg.name)
+    .setDescription(pkg.description)
     .setVersion(pkg.version)
     .build();
   const document = SwaggerModule.createDocument(app, swaggerConfig);
   SwaggerModule.setup('swagger', app, document);
+  Logger.log(`swagger available on /swagger and /swagger-json`, 'MAIN');
 
   // setup validation
   app.useGlobalPipes(
@@ -33,6 +35,6 @@ async function bootstrap() {
   // start the api
   const config = app.get<ConfigType<typeof appConfig>>(appConfig.KEY);
   await app.listen(config.port);
-  Logger.log(`API started on port ${config.port}`, 'MAIN');
+  Logger.log(`${pkg.name} started on port ${config.port}`, 'MAIN');
 }
 bootstrap();

@@ -2,7 +2,7 @@
   "name": "@webeleon/nestjs-boilerplate",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "Webeleon <julien@webeleon.dev>",
   "private": true,
   "license": "MIT",
   "scripts": {
