@@ -16,7 +16,6 @@ import { HealthModule } from './health/health.module';
       imports: [ConfigModule],
       inject: [databaseConfig.KEY],
       useFactory: async (config: ConfigType<typeof databaseConfig>) => {
-        Logger.debug(config, 'database config');
         return {
           uri: config.mongoUrl,
         };
