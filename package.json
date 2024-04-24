@@ -41,7 +41,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.0.0",
     "@commitlint/config-conventional": "^19.0.0",
-    "@nestjs/cli": "^9.0.0",
+    "@nestjs/cli": "^10.0.0",
     "@nestjs/schematics": "^9.0.0",
     "@nestjs/testing": "^9.0.0",
     "@shelf/jest-mongodb": "^4.0.0",
